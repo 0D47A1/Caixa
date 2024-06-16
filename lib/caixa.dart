@@ -15,7 +15,7 @@ class Molde {
   final Gradient? gradient;
   final BlendMode? backgroundBlendMode;
   final BoxShape shape;
-  final BorderSide? borderSide;
+
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
   final AlignmentGeometry? alignment;
@@ -34,7 +34,8 @@ class Molde {
     this.gradient,
     this.backgroundBlendMode,
     this.shape = BoxShape.rectangle,
-    this.borderSide,
+
+
     this.margin,
     this.padding,
     this.alignment,
@@ -55,7 +56,6 @@ class Caixa extends StatelessWidget {
   final Gradient? gradient;
   final BlendMode? backgroundBlendMode;
   final BoxShape shape;
-  final BorderSide? borderSide;
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
   final AlignmentGeometry? alignment;
@@ -74,7 +74,6 @@ class Caixa extends StatelessWidget {
     this.gradient,
     this.backgroundBlendMode,
     this.shape = BoxShape.rectangle,
-    this.borderSide,
     this.margin,
     this.padding,
     this.alignment,
@@ -92,7 +91,6 @@ class Caixa extends StatelessWidget {
     final moldeGradient = molde?.gradient ?? gradient;
     final moldeBackgroundBlendMode = molde?.backgroundBlendMode ?? backgroundBlendMode;
     final moldeShape = molde?.shape ?? shape;
-    final moldeBorderSide = molde?.borderSide ?? borderSide;
     final moldeMargin = molde?.margin ?? margin;
     final moldePadding = molde?.padding ?? padding;
     final moldeAlignment = molde?.alignment ?? alignment;

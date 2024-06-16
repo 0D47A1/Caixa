@@ -1,6 +1,6 @@
 name: caixa
 description: "Package para facilitar a construção de um Container em flutter"
-version: 0.0.1
+version: 1.0.0
 homepage: "https://github.com/RJ4G5/caixa"
 
 environment:
