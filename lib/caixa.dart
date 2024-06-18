@@ -1,5 +1,4 @@
 library caixa;
-
 import 'package:flutter/material.dart';
 
 class Molde {
@@ -15,15 +14,14 @@ class Molde {
   final Gradient? gradient;
   final BlendMode? backgroundBlendMode;
   final BoxShape shape;
-
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
   final AlignmentGeometry? alignment;
-
+  final Color? splashColor;
 
   const Molde({
     this.child,
-    this.clipBehavior  = Clip.none,
+    this.clipBehavior = Clip.none,
     this.height,
     this.width,
     this.color,
@@ -34,11 +32,10 @@ class Molde {
     this.gradient,
     this.backgroundBlendMode,
     this.shape = BoxShape.rectangle,
-
-
     this.margin,
     this.padding,
     this.alignment,
+    this.splashColor
   });
 }
 
@@ -59,11 +56,14 @@ class Caixa extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
   final AlignmentGeometry? alignment;
+  final VoidCallback? onTap; 
+  final Color? splashColor;
 
   const Caixa({
+    super.key, 
     this.molde,
-    this.clipBehavior = Clip.none,
     this.child,
+    this.clipBehavior = Clip.none,
     this.height,
     this.width,
     this.color,
@@ -77,6 +77,8 @@ class Caixa extends StatelessWidget {
     this.margin,
     this.padding,
     this.alignment,
+    this.onTap, 
+    this.splashColor
   });
 
   @override
@@ -96,15 +98,28 @@ class Caixa extends StatelessWidget {
     final moldeAlignment = molde?.alignment ?? alignment;
     final moldeHeight = molde?.height ?? height;
     final moldeWidth = molde?.width ?? width;
+    final moldeSplashColor = molde?.splashColor ?? splashColor;
+
+
+    final inkWell = Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: moldeBorderRadius as BorderRadius?,
+          splashColor: moldeSplashColor,         
+          child: Padding(
+            padding: moldePadding ?? EdgeInsets.zero,
+            child: moldeChild,
+          ) ,
+        ),
+    );
 
     return Container(
-      
       height: moldeHeight,
       width: moldeWidth,
       clipBehavior: moldeclipBehavior,
-      child: moldeChild,
       margin: moldeMargin,
-      padding: moldePadding,
+      padding: onTap != null ? EdgeInsets.zero :  moldePadding,
       alignment: moldeAlignment,
       decoration: BoxDecoration(
         color: moldeColor,
@@ -116,7 +131,9 @@ class Caixa extends StatelessWidget {
         backgroundBlendMode: moldeBackgroundBlendMode,
         shape: moldeShape,
       ),
-      
+      child: onTap != null ?  inkWell : moldeChild,
     );
+
+  
   }
 }

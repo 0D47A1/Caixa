@@ -1,3 +1,8 @@
+
+## 1.1.0
+
+* Adicionada a função onTap
+
 ## 1.0.0
 
 * Remoção do BorderSide
