@@ -9,19 +9,77 @@ Olá, desenvolvedores! Este pacote pode facilitar a sua vida no Flutter: o pacot
 
 3. ### Propriedades Estendidas para Personalização
     A Caixa estende várias propriedades que o Container oferece, mas de uma maneira que permite uma personalização mais detalhada e flexível. **Todas as propriedades do 'decoration' são configuradas diretamente na classe Caixa.**
-    ![exemplo caixa](https://github.com/RJ4G5/caixa/assets/9409514/cc142e39-f8cc-428e-ade3-0d51abda571e)
+     ```dart
+    Caixa(
+        height: 80,
+        width: 150,
+        color: const Color(0xFFD81B60),
+        borderRadius: BorderRadius.circular(5),
+        boxShadow: const [
+            BoxShadow(
+            blurRadius: 10,
+            color: Color.fromARGB(96, 0, 0, 0)
+            )
+        ],
+        child: const Center(
+            child: Text("Caixa", 
+                style:  TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Color.fromARGB(255, 230, 230, 230))),
+        ),
+    ),
+    ```
 
 4. ### Facilidade de Aplicar Efeitos de Animação
     Com a Caixa, é fácil adicionar efeitos de toque (splash effects) usando a propriedade splashColor. Isso dá um feedback visual imediato ao usuário quando a Caixa é tocada, melhorando a experiência do usuário.
 
+5. ### Instalação
+    ```console
+    $ flutter pub add caixa
+    ```
 
+    ```dart
+    import 'package:caixa/caixa.dart';
+    ```
 
 #### Exemplo usando molde para criar botões :
-
-![molde](https://github.com/RJ4G5/caixa/assets/9409514/496dc39e-7f93-4821-87f8-be4f9bc6d882)
+ ```dart
+var moldeButton = Molde(
+        height: 80,
+        width: 150,
+        color: const Color(0xFF00838F),
+        borderRadius: BorderRadius.circular(5),
+        boxShadow: const [
+            BoxShadow(
+            blurRadius: 10,
+            color: Color.fromARGB(96, 0, 0, 0)
+            )
+        ],
+);
+```
 
 #### Botão 01:
-![button01](https://github.com/RJ4G5/caixa/assets/9409514/2f46cffb-853a-41f0-83e8-ef3ad9f96fb1)
+ ```dart
+Caixa(
+    molde: moldeButton,  
+    onTap: () {
+        print("Botão 01");
+    },                 
+    child: const Center(
+        child: Text("Botão 01",
+            style:  TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Color.fromARGB(255, 230, 230, 230))),
+    ),
+),
+```
 
 #### Botão 02:
-![button02](https://github.com/RJ4G5/caixa/assets/9409514/54f5e12d-b99a-4ee9-804c-405728fdf503)
+ ```dart
+Caixa(
+    molde: moldeButton,  
+    onTap: () {
+        print("Botão 02");
+    },                 
+    child: const Center(
+        child: Text("Botão 02",
+            style:  TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Color.fromARGB(255, 230, 230, 230))),
+    ),
+),
+```
