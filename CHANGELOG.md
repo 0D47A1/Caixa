@@ -1,4 +1,8 @@
 
+## 1.2.0
+
+* Aplicativo de exemplo e informações de readme
+
 ## 1.1.0
 
 * Adicionada a função onTap
