@@ -1,5 +1,5 @@
 name: caixa
-description: "Package para facilitar a construção de um Container em flutter"
+description: "O pacote caixa foi criado para simplificar e potencializar a criação de containers no Flutter, fornecendo uma solução mais flexível e reutilizável. Com a classe Caixa, você pode facilmente aplicar estilos personalizados, adicionar ações de toque e reutilizar configurações com a ajuda da classe Molde."
 version: 1.2.0
 homepage: "https://github.com/RJ4G5/caixa"
 
